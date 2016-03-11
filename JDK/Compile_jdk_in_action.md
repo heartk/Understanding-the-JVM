@@ -28,4 +28,16 @@ http://www.iteye.com/topic/1097344/
 ![](../images/1/1.6.2—1.jpeg)
 
 
+CYGWIN安装时的定制包选择界面如图1-6所示： 
+
+
+建立编译环境的第二步是安装编译器。JDK中最核心的代码（Java虚拟机及JDK中Native方法的实现等）是使用C++语言及少量的C语言编写的，官方文档中说他们的内部开发环境是在Microsoft Visual Studio C++ 2003（VS2003）中进行编译，同时也在Microsoft Visual Studio C++ 2010（VS2010）中测试过，所以最好只选择这两个编译器之一进行编译。如果选择VS2010，那么在编译器之中已经包含了Windows SDK v 7.0a，否则可能还要自己去下载这个SDK，并且更新PlatformSDK目录。由于笔者没有购买Visual Studio 2010的IDE，所以仅仅下载了VS2010 Express中提取出来的C++编译器，这部分是免费的，但单独安装好编译器比较麻烦。建议读者选择使用整套Visual Studio C++ 2010或Visual Studio C++ 2010 Express版进行编译。 
+　　需要特别注意的一点：CYGWIN和VS2010安装之后都会在操作系统的PATH环境变量中写入自己的bin目录路径，必须检查并保证VS2010的bin目录一定要在CYGWIN的bin目录之前，因为这两个软件的bin目录之中各自都有个连接器“link.exe”，但是只有VS2010中的连接器可以完成OpenJDK的编译。 
+　　准备JDK编译环境的第三步就是下载一个已经编译好了的JDK。这听起来也许有点滑稽——要用鸡蛋孵小鸡还真得必须先养一只母鸡呀？但仔细想想其实这个步骤很合理：因为JDK包含的各个部分（Hotspot、JDK API、JAXWS、JAXP……）有的是使用C++编写的，而更多的代码则是使用Java自身实现的，因此编译这些Java代码需要用到一个可用的JDK，官方称这个JDK为“Bootstrap JDK”。而编译OpenJDK 7的话，Bootstrap JDK必须使用JDK6 Update 14或之后的版本，笔者选用的是JDK6 Update 21。 
+　　最后一个步骤是下载一个Apache ANT，JDK中Java代码部分都是使用ANT脚本进行编译的，ANT版本要求在1.6.5以上，这部分是Java的基础知识，对本书的读者来说应该没有难度，笔者就不再详述。 
+
+
+
+
+
 
