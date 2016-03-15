@@ -35,6 +35,9 @@ CYGWIN安装时的定制包选择界面如图1-6所示：
 　　需要特别注意的一点：CYGWIN和VS2010安装之后都会在操作系统的PATH环境变量中写入自己的bin目录路径，必须检查并保证VS2010的bin目录一定要在CYGWIN的bin目录之前，因为这两个软件的bin目录之中各自都有个连接器“link.exe”，但是只有VS2010中的连接器可以完成OpenJDK的编译。 
 　　准备JDK编译环境的第三步就是下载一个已经编译好了的JDK。这听起来也许有点滑稽——要用鸡蛋孵小鸡还真得必须先养一只母鸡呀？但仔细想想其实这个步骤很合理：因为JDK包含的各个部分（Hotspot、JDK API、JAXWS、JAXP……）有的是使用C++编写的，而更多的代码则是使用Java自身实现的，因此编译这些Java代码需要用到一个可用的JDK，官方称这个JDK为“Bootstrap JDK”。而编译OpenJDK 7的话，Bootstrap JDK必须使用JDK6 Update 14或之后的版本，笔者选用的是JDK6 Update 21。 
 　　最后一个步骤是下载一个Apache ANT，JDK中Java代码部分都是使用ANT脚本进行编译的，ANT版本要求在1.6.5以上，这部分是Java的基础知识，对本书的读者来说应该没有难度，笔者就不再详述。 
+　　
+　　下载：microsoft visual studio 2010
+　　https://www.microsoft.com/en-us/Search/result.aspx?q=visual%20studio%202010%20c%2B%2B
 
 
 
